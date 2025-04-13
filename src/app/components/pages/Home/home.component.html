@@ -9,8 +9,43 @@
         })
     })
 </script>
+<style>
+    .form-wrapper{
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .form-wrapper form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+    .form-wrapper label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .form-wrapper input {
+        padding: 5px;
+        width: 100px;
+        text-align: center;
+    }
+    .form-wrapper h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .form-wrapper button {
+        padding: 8px 16px;
+        cursor: pointer;
+    }
+</style>
 <h2>Home</h2>
 
+<!--Color-Table: -->
 <form [formGroup]="colorForm" (ngSubmit)="handleSubmit()">
     <label>Rows
         <input type="number" placeholder="1-1000" formControlName="rows"/>
@@ -45,3 +80,34 @@
         </td>
     </tr>
 </table>
+
+<!--Excel Table: -->
+<div class="form-wrapper">
+    <h2>Create a Custom Excel-style Table</h2>
+    <form [formGroup]="excelForm" (ngSubmit)="handleExcelSubmit()">
+      <label>Rows:
+        <input type="number" formControlName="rows" required />
+      </label>
+      <label>Columns (max 702):
+        <input type="number" formControlName="columns" required />
+      </label>
+      <button type="submit" [disabled]="!excelForm.valid">Generate Table</button>
+    </form>
+  </div>
+
+<div class = "table-wrapper">
+    <div id = "table-container">
+        <table *ngIf="excelTable.length > 0">
+            <tr *ngFor="let row of excelTable; let i = index">
+                <ng-container *ngFor = "let cell of row; let j = index">
+                    <th *ngIf="cell.isHeader" [ngClass] = "{'corner-cell': cell.isCorner}" (click)="onCellClick(i, j)">
+                        {{cell.value}}
+                    </th>
+                    <td *ngIf="!cell.isHeader" (click)="onCellClick(i, j)">
+                        {{cell.value}}
+                    </td>
+                </ng-container>
+            </tr>
+        </table>
+    </div> 
+</div>

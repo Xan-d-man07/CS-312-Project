@@ -1,0 +1,36 @@
+.table-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: auto;
+    margin-top: 20px;
+}
+
+#table-container {
+    overflow: auto;
+    max-width: 100%;
+    background-color: white; /*Might remove. This adds a random white box...will look into it.*/
+    padding: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+th{
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.corner-cell {
+    background-color: #333;
+    color: white;
+}
