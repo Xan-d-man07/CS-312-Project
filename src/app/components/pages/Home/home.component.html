@@ -62,7 +62,7 @@
 <table *ngIf="table.length > 0">
     <tr *ngFor="let row of table; index as i">
         <td *ngFor="let cell of row; even as IsEven">
-            @if (!IsEven) {
+            @if (IsEven) {
                 <input type="radio" name="color_selection" id="{{i}}">
                 <select>
                     <optgroup label="Colors">
