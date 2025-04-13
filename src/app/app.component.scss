@@ -1,0 +1,26 @@
+@import "../styles.scss";
+
+nav {
+    display: flex;
+    background-color: $foreground2;
+    height: 2em;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    
+}
+
+a {
+    display: flex;
+    background-color: $foreground2;
+    min-width: 50%;
+    align-items: center;
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
+    justify-content: center;
+}
+
+a:hover {
+    background-color: $foreground1;
+}
+

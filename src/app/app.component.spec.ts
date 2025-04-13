@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'cs312_project' title`, () => {
+  it(`should have the 'cs312_groupProject' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('cs312_project');
+    expect(app.title).toEqual('cs312_groupProject');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, cs312_project');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, cs312_groupProject');
   });
 });

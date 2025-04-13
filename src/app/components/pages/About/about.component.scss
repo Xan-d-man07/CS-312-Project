@@ -1,0 +1,14 @@
+@import "../../../../styles.scss";
+.container  {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    max-width: 25vw;
+    background-color: $foreground1;
+    border: 5px solid $foreground2;
+    border-radius: 10px;
+}
+
+h2 {
+    color: $foreground2;
+    text-decoration: underline;
+}

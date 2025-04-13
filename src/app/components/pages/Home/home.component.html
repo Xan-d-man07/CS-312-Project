@@ -1,0 +1,47 @@
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let active = [''];
+
+        let allSelectElements = document.querySelectorAll('select');
+
+        allSelectElements.forEach(selectElement => {
+            
+        })
+    })
+</script>
+<h2>Home</h2>
+
+<form [formGroup]="colorForm" (ngSubmit)="handleSubmit()">
+    <label>Rows
+        <input type="number" placeholder="1-1000" formControlName="rows"/>
+    </label>
+    <label>Columns
+        <input type="number" placeholder="1-702" formControlName="columns"/>
+    </label>
+    <label>Colors
+        <input type="number" placeholder="1-10" formControlName="colors"/>
+    </label>
+    <button type="submit" [disabled]="!colorForm.valid">Submit</button>
+</form>
+
+<table *ngIf="table.length > 0">
+    <tr *ngFor="let row of table; index as i">
+        <td *ngFor="let cell of row; even as IsEven">
+            @if (!IsEven) {
+                <input type="radio" name="color_selection" id="{{i}}">
+                <select>
+                    <optgroup label="Colors">
+                        @for (name of color_names; track $index) {
+                            @if(i == $index) {
+                                <option value="{{name}}" selected>{{name}}</option>
+                            }
+                            @else {
+                                <option value="{{name}}">{{name}}</option> 
+                            }
+                        }
+                    </optgroup>
+                </select>
+            }
+        </td>
+    </tr>
+</table>
